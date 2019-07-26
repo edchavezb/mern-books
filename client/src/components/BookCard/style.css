@@ -1,0 +1,49 @@
+
+.img-container {
+  background: #fff;
+  border-radius: 2px;
+  padding: 1%;
+  margin: 1rem;
+  width: 90%;
+  height: 170px;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  background:rgb(250, 252, 253);
+  overflow: hidden;
+}
+
+.book-img {
+  width: 15%;
+  max-height: 150px;
+  line-height: 170px;
+  vertical-align: top;
+}
+
+.text-area{
+  margin-left: 25px;
+  width: 65%;
+  height: 150px;
+  word-wrap: break-word;
+  display: -webkit-inline-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.button-wrapper{
+  margin-left: 15px;
+  width: 10%;
+  height: 150px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+button {
+  width: 70px;
+  line-height: 150px;
+}
+
+.small{
+  font-size: 0.75rem;
+}
