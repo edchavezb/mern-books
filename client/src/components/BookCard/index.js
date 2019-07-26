@@ -13,13 +13,13 @@ function BookCard(props) {
       <div className="button-wrapper">
 
         <a href={props.url}><Button variant="primary" className="mt-4">More</Button></a>
-        <Button variant="primary" className="mt-2" onClick={() => props.saveBook({
+        <Button variant="primary" className="mt-2" onClick={() => {props.function === "Save" ? props.saveBook({
           "name": props.name,
           "author": props.author,
           "summary": props.summary,
           "image": props.image,
           "url" : props.url
-        })}>Save</Button>
+        }) : props.deleteBook(props.id)}}>{props.function}</Button>
 
       </div>
     </div>
