@@ -28,18 +28,18 @@ class Home extends Component {
   };
 
   apiCall = () => {
-    let APIKey = "AIzaSyAUWA0Up9T07q7HQp2rCHzmNI4NkxbmYIY";
-    let search = this.state.searchWord
-    axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&langRestrict=en&key=' + APIKey)
+    console.log(this.state.searchWord)
+    axios.post("/search/", {search: this.state.searchWord})
     .then(response => {
-      console.log(response.data.items);
+      console.log(response.data);
+      console.log("Found books");
       this.setState({
-        books: response.data.items
+        books: response.data
       });
     })
     .catch(error => {
       console.log(error);
-    });
+    }); 
   }
 
   saveBook = (bookInfo) => {

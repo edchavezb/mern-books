@@ -1,6 +1,9 @@
 const express = require("express");
 var mongoose = require("mongoose");
 var db = require("./models");
+var axios = require("axios");
+require('dotenv').config()
+
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/bookshelf"
 
 const path = require("path");
@@ -15,6 +18,21 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
 // Define API routes here
+
+app.post("/search", function (req, res) {
+  console.log(req.body)
+  let search = req.body.search
+  let APIKey = process.env.GOOGLEBOOKS_APIKEY;
+  axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&langRestrict=en&key=' + APIKey)
+  .then(response => {
+    console.log(response.data.items[0]);
+    res.json(response.data.items);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+});
+
 app.get("/library", function (req, res) {
   // TODO: Finish the route so it grabs all of the articles
   db.Book.find({})
