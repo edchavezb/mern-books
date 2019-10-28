@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import BookCard from "../BookCard";
-import Wrapper from "../Wrapper";
-import Title from "../Title";
+import BookCard from "../components/BookCard";
+import Wrapper from "../components/Wrapper";
+import Title from "../components/Title";
 
 class Saved extends Component {
   state = {
@@ -41,7 +41,8 @@ class Saved extends Component {
   render() {
     return (
       <Wrapper>
-        <Title title="My Saved Books"/>
+        <Title title="Best books of all time"/>
+        <p>(According to people who visited this site)</p>
         {this.state.books.map(book => (
           <BookCard
             function= "Delete"

@@ -1,5 +1,5 @@
 
-.img-container {
+.book-container {
   background: #fff;
   border-radius: 2px;
   padding: 1%;
@@ -16,12 +16,21 @@
   max-height: 150px;
   line-height: 170px;
   vertical-align: top;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.book-info{
+  display: inline-block;
+  width: 85%;
+  height: 100%;
+  vertical-align: top;
 }
 
 .text-area{
-  margin-left: 25px;
-  width: 65%;
-  height: 150px;
+  margin-left: 5%;
+  width: 75%;
   word-wrap: break-word;
   display: -webkit-inline-box;
   -webkit-line-clamp: 6;
@@ -30,10 +39,15 @@
   text-overflow: ellipsis;
 }
 
+.book-name{
+  font-style: italic;
+}
+
 .button-wrapper{
-  margin-left: 15px;
-  width: 10%;
-  height: 150px;
+  height: 100%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  width: 15%;
   display: inline-block;
   vertical-align: top;
   text-align: center;
@@ -44,6 +58,50 @@ button {
   line-height: 150px;
 }
 
-.small{
+.more-button{
+  position: relative;
+  top: 20%
+}
+
+.save-button{
+  margin-top: 3em;
+}
+
+.description{
   font-size: 0.75rem;
+}
+
+@media (max-width: 737px){
+  .book-img{
+    width: 30%;
+    margin-left: 3%
+  }
+
+  .book-info{
+    width: 65%;
+    position: relative;
+  }
+
+  .text-area{
+    width: 90%;
+    margin-right: 5%
+  }
+  .description{
+    display: none;
+  }
+  .button-wrapper{
+    height: auto;
+    width: 100%;
+    display: inline-block;
+    position: absolute;
+    bottom: 5%;
+    left: 0%
+  }
+  .more-button{
+    top: 0%
+  }
+  .save-button{
+    margin-left: .5em;
+    margin-top: 0em;
+  }
 }

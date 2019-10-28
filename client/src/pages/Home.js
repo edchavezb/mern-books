@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { Button, Row, Col, Form } from 'react-bootstrap';
-import BookCard from "../BookCard";
-import Wrapper from "../Wrapper";
-import Title from "../Title";
+import BookCard from "../components/BookCard";
+import Wrapper from "../components/Wrapper";
+import Title from "../components/Title";
 
 class Home extends Component {
   state = {
@@ -56,8 +56,11 @@ class Home extends Component {
   render() {
     return (
       <Wrapper>
-        <Title title="Google Book Search"/>
+        <Title className="page-title" title="Book RecomMERNdations"/>
         <Row className="mt-3 mb-3">
+          <Col xs="12">
+            <p className="text-center">Search a title and add it to our collective list of the best books ever!</p>
+          </Col>
           <Col xs="9" sm="10">
             <Form.Control type="text" placeholder="All the books are here"  name="searchWord"
               value={this.state.searchWord} 

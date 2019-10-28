@@ -1,4 +1,4 @@
-.title {
+.page-title {
   width: 100%;
   text-align: center;
   font-size: 3rem;
@@ -8,4 +8,10 @@
 
 .score{
   text-align: right;
+}
+
+@media (max-width: 737px){
+  .page-title{
+    font-size: 2rem;
+  }
 }

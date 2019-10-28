@@ -11,3 +11,9 @@
   align-content: flex-start;
   overflow: auto;
 }
+
+@media (max-width : 737px){
+  .wrapper {
+    width: 100%
+  }
+}
