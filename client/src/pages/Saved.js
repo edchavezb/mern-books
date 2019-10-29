@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { Button, Modal, Form } from 'react-bootstrap';
 import BookCard from "../components/BookCard";
 import Wrapper from "../components/Wrapper";
 import Title from "../components/Title";
@@ -8,6 +9,7 @@ import NavTabs from "../components/NavTabs";
 class Saved extends Component {
   state = {
     books: [],
+    showModal: false
   };
 
   componentDidMount() {
@@ -20,7 +22,6 @@ class Saved extends Component {
   getSavedBooks = () => {
     axios.get("/library")
     .then(response => {
-      console.log(response.data);
       this.setState({
         books: response.data
       });
@@ -30,21 +31,57 @@ class Saved extends Component {
     });
   }
 
+  passwordCheck = () => {
+    axios.post("/passwordcheck", {password: this.state.password})
+    .then(response => {
+      if (response.data.confirm === true){
+        this.deleteBook(this.state.deleteId);
+      }
+      else {
+        console.log("Password is incorrect")
+      }
+    })
+  }
+
   deleteBook = (id) => {
     axios.post("/library/" + id)
     .then(response => {
-      console.log(response);
-      console.log("Book removed!");
+      console.log(response.data.message);
     })
     .catch(error => {
       console.log(error);
     });
+    this.handleClose();
     this.getSavedBooks();
   }
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleClose = () => this.setState({showModal: false});
+  handleShow = (id) => this.setState({showModal: true, deleteId: id});
 
   render() {
     return (
       <div>
+        <Modal show={this.state.showModal} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Are you sure?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form.Control type="password" placeholder="Enter the secret password to delete this title"  name="password"
+              value={this.state.password} 
+              onChange={this.handleInputChange}
+            />  
+            <Button className="confirm-button" variant="primary" onClick={this.passwordCheck}>
+              Confirm
+            </Button>
+          </Modal.Body>
+        </Modal>
         <NavTabs 
           path = {this.state.path}
         />
@@ -54,7 +91,7 @@ class Saved extends Component {
           {this.state.books.map(book => (
             <BookCard
               function= "Delete"
-              deleteBook= {this.deleteBook}
+              deleteModal= {this.handleShow}
               key={book._id}
               id={book._id}
               name={book.name}

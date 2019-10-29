@@ -65,12 +65,18 @@ app.post("/library/:id", function (req, res) {
   db.Book.remove({_id : req.params.id})
     .then(function (all) {
       // If all Notes are successfully found, send them back to the client
+      res.json({message: "Book removed!"})
       console.log("Book removed!")
     })
     .catch(function (err) {
       // If an error occurs, send the error back to the client
       res.json(err);
     });
+});
+
+app.post("/passwordcheck", function (req, res) {
+  var correct = req.body.password === "heladodemango" ? true : false;
+  res.json({confirm: correct})
 });
 
 // Serve up static assets (usually on heroku)

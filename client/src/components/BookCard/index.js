@@ -19,7 +19,7 @@ function BookCard(props) {
             "summary": props.summary,
             "image": props.image,
             "url" : props.url
-          }) : props.deleteBook(props.id)}}>{props.function}</Button>
+          }) : props.deleteModal(props.id)}}>{props.function}</Button>
         </div>
       </div>
     </div>
