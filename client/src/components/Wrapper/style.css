@@ -2,7 +2,6 @@
   /* padding-top: 10px; */
   background: #ECEFF1;
   width: 80%;
-  height: 100%;
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
@@ -14,6 +13,6 @@
 
 @media (max-width : 737px){
   .wrapper {
-    width: 100%
+    width: 100%;
   }
 }

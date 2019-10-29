@@ -9,7 +9,7 @@ import NavTabs from "../components/NavTabs";
 class Home extends Component {
   state = {
     books: [],
-    searchWord: "1984"
+    searchWord: "The Obstacle is the Way"
   };
 
   componentDidMount() {
