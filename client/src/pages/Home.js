@@ -34,7 +34,6 @@ class Home extends Component {
   apiCall = () => {
     axios.post("/search/", {search: this.state.searchWord})
     .then(response => {
-      console.log("Found books");
       this.setState({
         books: response.data
       });
@@ -47,7 +46,14 @@ class Home extends Component {
   saveBook = (bookInfo) => {
     axios.post("/library/", bookInfo)
     .then(response => {
-      console.log("Book saved to library");
+      var bookName = response.data.name
+      var bookArray = this.state.books
+      for (var i = 0; i < bookArray.length; i++){
+        if (bookArray[i].volumeInfo.title === bookName){
+          bookArray.splice(i, 1)
+          this.setState({books: bookArray});
+        }
+      }
     })
     .catch(error => {
       console.log(error);

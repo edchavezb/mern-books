@@ -50,8 +50,6 @@ app.post("/library", function (req, res) {
   db.Book.create(req.body)
     .then(function (dbBook) {
       console.log(dbBook);
-    })
-    .then(function(dbBook) {
       res.json(dbBook);
     })
     .catch(function (err) {
