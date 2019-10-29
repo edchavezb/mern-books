@@ -9,7 +9,6 @@ import NavTabs from "../components/NavTabs";
 class Home extends Component {
   state = {
     books: [],
-    searchWord: "The Obstacle is the Way"
   };
 
   componentDidMount() {
@@ -32,7 +31,8 @@ class Home extends Component {
   };
 
   apiCall = () => {
-    axios.post("/search/", {search: this.state.searchWord})
+    var title = this.state.searchWord ? this.state.searchWord : "Brave New World"
+    axios.post("/search/", {search: title})
     .then(response => {
       this.setState({
         books: response.data
