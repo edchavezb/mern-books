@@ -29,14 +29,9 @@
 }
 
 .text-area{
+  display: inline-block;
   margin-left: 5%;
   width: 75%;
-  word-wrap: break-word;
-  display: -webkit-inline-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .book-name{
@@ -69,6 +64,10 @@ button {
 
 .description{
   font-size: 0.75rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 
 @media (max-width: 737px){
@@ -81,10 +80,13 @@ button {
     width: 65%;
     position: relative;
   }
-
   .text-area{
     width: 90%;
-    margin-right: 5%
+    margin-top: 5%;
+    margin-left: 10%;
+    max-height: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .description{
     display: none;

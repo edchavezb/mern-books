@@ -12,7 +12,7 @@ function BookCard(props) {
           <p className="description">{props.summary}</p>
         </div>
         <div className="button-wrapper">
-          <a className="gbooks-link" href={props.url}><Button variant="primary" className="more-button">More</Button></a>
+          <a className="gbooks-link" href={props.url}><Button variant="primary" className="more-button">Info</Button></a>
           <Button variant="primary" className="save-button" onClick={() => {props.function === "Save" ? props.saveBook({
             "name": props.name,
             "author": props.author,
