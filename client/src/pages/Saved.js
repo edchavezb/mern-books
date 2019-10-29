@@ -9,7 +9,8 @@ import NavTabs from "../components/NavTabs";
 class Saved extends Component {
   state = {
     books: [],
-    showModal: false
+    showModal: false,
+    wrongPswAlert: false
   };
 
   componentDidMount() {
@@ -38,6 +39,7 @@ class Saved extends Component {
         this.deleteBook(this.state.deleteId);
       }
       else {
+        this.setState({wrongPswAlert: true});
         console.log("Password is incorrect")
       }
     })
@@ -63,7 +65,7 @@ class Saved extends Component {
   };
 
   handleClose = () => this.setState({showModal: false});
-  handleShow = (id) => this.setState({showModal: true, deleteId: id});
+  handleShow = (id) => this.setState({showModal: true, deleteId: id, wrongPswAlert: false, password: ""});
 
   render() {
     return (
@@ -73,7 +75,8 @@ class Saved extends Component {
             <Modal.Title>Are you sure?</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form.Control type="password" placeholder="Enter the secret password to delete this title"  name="password"
+            <p>{this.state.wrongPswAlert ? "Wrong password. Try again." : "Enter the secret password to delete this title"}</p>
+            <Form.Control type="password" placeholder="Password"  name="password"
               value={this.state.password} 
               onChange={this.handleInputChange}
             />  
