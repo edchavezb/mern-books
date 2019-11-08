@@ -1,29 +1,27 @@
-# Create React Express App
+# Book RecomMERNdations
 
-## About This Boilerplate
+This simple MERN app allows visitors to search for a book title and add it to a collective list of the best books ever written. Users can later review the list and delete titles, if they authenticate with the right permissions. The app uses the Google Books API to retrieve and display information about each title.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Built with
 
-## Starting the app locally
+* React (Frontend framework)
+* Express (API and server)
+* MongoDB (Database)
+* Bootstrap (Grid, spacing, nav and button styling)
+* Google Books API (For book details and front cover)
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
 
-```
-npm install
-```
+## Usage
 
-This should install node modules within the server and the client folder.
+Use the search box to enter the name of a book you consider excellent. From the results you can find the right book and save it to our collective list. Review the list by clicking on "Saved".
 
-After both installations complete, run the following command in your terminal:
 
-```
-npm start
-```
+## Demo
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+Click [here](https://recommerndations.herokuapp.com) to launch the app.
 
-## Deployment (Heroku)
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## Authors
+
+* **[Edgar Chávez](https://github.com/edgar821)**
