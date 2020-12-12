@@ -33,6 +33,12 @@ app.post("/search", function (req, res) {
   });
 });
 
+app.get("/test", function (req, res){
+
+  res.send(["Response", "Something else"])
+
+})
+
 app.get("/library", function (req, res) {
   // TODO: Finish the route so it grabs all of the articles
   db.Book.find({})
@@ -92,4 +98,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
+  app.emit("ready");
 });
+
+module.exports = app;
